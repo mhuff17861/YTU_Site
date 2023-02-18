@@ -1,0 +1,47 @@
+# This file contains default .gitignore rules. To use it, copy it to .gitignore,
+# and it will cause files like your settings.php and user-uploaded files to be
+# excluded from Git version control. This is a common strategy to avoid
+# accidentally including private information in public repositories and patch
+# files.
+#
+
+# Ignore core when managing all of a project's dependencies with Composer
+# including Drupal core.
+# core
+
+# Ignore dependencies that are managed with Composer.
+# Generally you should only ignore the root vendor directory. It's important
+# that core/assets/vendor and any other vendor directories within contrib or
+# custom module, theme, etc., are not ignored unless you purposely do so.
+/vendor/
+
+# Ignore configuration files that may contain sensitive information.
+webroot/sites/*/settings*.php
+webroot/sites/*/services*.yml
+
+# Ignore paths that contain user-generated content.
+webroot/sites/*/files
+webroot/sites/*/private
+
+# Ignore SimpleTest multi-site environment.
+webroot/sites/simpletest
+
+# If you prefer to store your .gitignore file in the sites/ folder, comment
+# or delete the previous settings and uncomment the following ones, instead.
+
+# Ignore configuration files that may contain sensitive information.
+*/settings*.php
+
+# Ignore paths that contain user-generated content.
+# */files
+# */private
+
+# Ignore SimpleTest multi-site environment.
+# simpletest
+
+tmp/
+composer.phar
+logs/
+
+# Git stuff
+.git-credentials
