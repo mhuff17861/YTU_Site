@@ -6,7 +6,9 @@ If you want to learn more about Drupal, I highly recommend a read through the [u
 
 ## Development Setup
 
-In the root directory, run the following command and respond to its prompts:
+First, get your settings.php file and put it in drupal-src/web/sites/default/settings.php. The one for the YTU is not stored here for all the obvious security reasons, contact the owner of the repo if you are a YTU member and need access.
+
+In the project's root directory, run the following command and respond to its prompts:
 
 `sudo ./dev_setup.sh`
 
