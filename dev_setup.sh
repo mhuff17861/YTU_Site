@@ -13,8 +13,11 @@ if [ $(id -u) != 0 ]; then
    exit 
 fi
 
-
 # intial setup
+drupal_dir=drupal-src
+web_root=$drupal_dir/web
+apache_dir=setup/apache
+
 apt update
 
 # Install and setup LAMP stack
@@ -27,15 +30,15 @@ a2enmod php8.1
 
 mkdir /var/www
 rm -r /var/www/drupal
-mkdir $(pwd)/drupal-src/web
-ln -s $(pwd)/drupal-src/web /var/www/drupal
+mkdir $(pwd)/$web_root
+ln -s $(pwd)/$web_root /var/www/drupal
 chmod -R 775 /var/www
 chmod -R 775 /var/www/drupal
 chown -R dev:www-data /var/www/drupal
-chown -R dev:www-data drupal-src/web
+chown -R dev:www-data $web_root
 
 echo "" >> /etc/apache2/apache2.conf
-cat $(pwd)/setup/apache/apache2-dev.conf >> /etc/apache2/apache2.conf
+cat $(pwd)/$apache_dir/apache2-dev.conf >> /etc/apache2/apache2.conf
 
 echo ""
 echo "You are about to be prompted to create an SSL cert for localhost. Enter localhost as the host name, enter IP:127.0.0.1 in alternative name(s) field."
@@ -45,8 +48,8 @@ make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/certs/localhost.crt
 
 rm /etc/apache2/sites-available/000-default.conf
 rm /etc/apache2/sites-available/default-ssl.conf
-ln -s $(pwd)/setup/apache/dev-site.conf /etc/apache2/sites-available/000-default.conf
-ln -s $(pwd)/setup/apache/ssl-dev.conf /etc/apache2/sites-available/default-ssl.conf
+ln -s $(pwd)/$apache_dir/dev-site.conf /etc/apache2/sites-available/000-default.conf
+ln -s $(pwd)/$apache_dir/ssl-dev.conf /etc/apache2/sites-available/default-ssl.conf
 
 service apache2 restart
 apt-get install php-ldap
@@ -88,4 +91,4 @@ then
 	exit 1
 fi
 
-sudo -u $uname php composer.phar install -d ./drupal-src
+sudo -u $uname php composer.phar install -d ./$drupal_dir
