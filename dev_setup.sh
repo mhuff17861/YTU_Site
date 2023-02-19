@@ -64,7 +64,7 @@ echo ""
 touch /home/$uname/autostart.sh
 printf '#!/bin/bash\nservice mysql start\nservice apache2 start\n' >> /home/$uname/autostart.sh
 chmod 777 /home/$uname/autostart.sh
-echo '# Allow apache2, mysql, and sendmail to start without a password' >> /etc/sudoers
+echo '# Allow apache2 and mysql to start without a password' >> /etc/sudoers
 echo '%sudo  ALL=(ALL) NOPASSWD: /usr/sbin/service apache2 *' >> /etc/sudoers
 echo '%sudo  ALL=(ALL) NOPASSWD: /usr/sbin/service mysql *' >> /etc/sudoers
 
