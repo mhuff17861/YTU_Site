@@ -102,8 +102,12 @@ chmod 640 drupal-src/web/sites/default/settings.php
 # chmod 640 *.php
 # sudo chmod 440 drupal-src/web/sites/default/settings.php
 
+# Install node package manager (npm) for scss stuff
+
 curl -fsSL https://fnm.vercel.app/install | bash
 source /home/$uname/.bashrc
+# Use fnm for install since apt is super out of date
 fnm install
+fpm install
 
 echo "Setup complete. You should check the README for further instructions, including updating cron and where to put you settings.php file."

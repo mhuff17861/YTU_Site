@@ -45,6 +45,7 @@ drupal-src/web/*/contrib
 tmp/
 composer.phar
 logs/
+node_modules/
 
 # Git stuff
 .git-credentials
