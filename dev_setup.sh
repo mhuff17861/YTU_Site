@@ -94,13 +94,13 @@ fi
 sudo -u $uname php composer.phar install -d ./$drupal_dir
 
 chown -R $uname:www-data $webroot
-chmod 770 drupal-src/web/sites/default/files
-chmod 750 drupal-src/web/modules
-chmod 640 drupal-src/web/sites/default/settings.php
 # sudo chmod 640 drupal-src/web/sites/default/settings.php
 # Putting this here for as a reminder for the future production setup run
 # chmod 640 *.php
-# sudo chmod 440 drupal-src/web/sites/default/settings.php
+# chmod 440 drupal-src/web/sites/default/settings.php
+# chmod 770 drupal-src/web/sites/default/files
+# chmod 750 drupal-src/web/modules
+# chmod 640 drupal-src/web/sites/default/settings.php
 
 # Install node package manager (npm) for scss stuff
 
