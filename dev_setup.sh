@@ -105,11 +105,4 @@ chmod 640 drupal-src/web/sites/default/settings.php
 
 # Install node package manager (npm) for scss stuff
 
-curl -fsSL https://fnm.vercel.app/install | bash
-source /home/$uname/.bashrc
-# Use fnm for install since apt is super out of date
-fnm install
-source /home/$uname/.bashrc
-npm install
-
-echo "Setup complete. You should check the README for further instructions, including updating cron and where to put you settings.php file."
+echo "Setup is almost complete! You should check the README for further instructions, including updating cron and installing fnm."
