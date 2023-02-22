@@ -28,7 +28,7 @@ apt update
 
 # Install and setup LAMP stack
 apt install lamp-server^
-apt install php8.1-xml php8.1-mbstring php8.1-gd php8.1-curl 
+apt install curl php8.1-xml php8.1-mbstring php8.1-gd php8.1-curl 
 a2ensite default-ssl
 a2enmod ssl
 a2enmod rewrite
@@ -94,13 +94,14 @@ fi
 sudo -u $uname php composer.phar install -d ./$drupal_dir
 
 chown -R $uname:www-data $webroot
+chmod 770 drupal-src/web/sites/default/files
+chmod 750 drupal-src/web/modules
+chmod 640 drupal-src/web/sites/default/settings.php
+
 # sudo chmod 640 drupal-src/web/sites/default/settings.php
 # Putting this here for as a reminder for the future production setup run
 # chmod 640 *.php
 # chmod 440 drupal-src/web/sites/default/settings.php
-# chmod 770 drupal-src/web/sites/default/files
-# chmod 750 drupal-src/web/modules
-# chmod 640 drupal-src/web/sites/default/settings.php
 
 # Install node package manager (npm) for scss stuff
 
@@ -108,6 +109,7 @@ curl -fsSL https://fnm.vercel.app/install | bash
 source /home/$uname/.bashrc
 # Use fnm for install since apt is super out of date
 fnm install
-fpm install
+source /home/$uname/.bashrc
+npm install
 
 echo "Setup complete. You should check the README for further instructions, including updating cron and where to put you settings.php file."
