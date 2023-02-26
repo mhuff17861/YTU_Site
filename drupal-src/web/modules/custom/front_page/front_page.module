@@ -1,0 +1,29 @@
+/**
+ * Implements hook_theme().
+ */
+function front_page_theme($existing, $type, $theme, $path) {
+  $variables = [
+    'front_page' => [
+      'variables' => [
+        'page_title' => NULL,
+        'subtitle' => NULL,
+        'show_button' => false,
+        'button_text' => NULL,
+        'button_url' => NULL,
+      ],
+      'template' => 'front_page',
+    ],
+  ];
+  return $variables;
+}
+
+/**
+ * Template preprocess function for the front page.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - source_text
+ */
+function template_preprocess_front_page(&$variables) {
+
+}

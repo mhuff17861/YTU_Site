@@ -1,0 +1,8 @@
+name: Banner Page
+description: Creates a page with a banner at the top.
+package: Tenant Union
+
+type: module
+core_version_requirement: ^10
+
+configure: banner_page.form

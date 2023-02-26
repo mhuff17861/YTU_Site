@@ -10900,5 +10900,8 @@ a > .ck-content code {
 .ck-content code {
   overflow-y: auto;
 }
+.ck-content .is-active {
+  color: #fff;
+}
 
 /*# sourceMappingURL=ck5style.css.map */

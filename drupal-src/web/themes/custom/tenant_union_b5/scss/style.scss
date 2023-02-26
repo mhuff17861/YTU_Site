@@ -7,3 +7,6 @@
 
 // Include bootstrap.
 @import '../../../../themes/contrib/bootstrap5/scss/style';
+
+// Include any additional custom site-wide styles
+@import 'tenant_union_styles.scss';

@@ -1,0 +1,5 @@
+front_page.form:
+  title: 'Front Page settings'
+  description: 'Configure settings for Front Page module.'
+  route_name: front_page.form
+  parent: 'system.admin_config_development'

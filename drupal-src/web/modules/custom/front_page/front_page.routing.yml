@@ -1,0 +1,16 @@
+# We only need one front page, so put it here
+front_page.build:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\front_page\Controller\FrontPageController::build'
+  requirements:
+    _permission: 'build front page'
+
+# Create a space for the admin page
+front_page.form:
+  path: '/admin/config/front_page'
+  defaults:
+    _form: '\Drupal\front_page\Form\FrontPageForm'
+    _title: 'Front Page settings'
+  requirements:
+    _permission: 'administer site configuration'
