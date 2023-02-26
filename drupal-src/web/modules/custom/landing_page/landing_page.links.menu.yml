@@ -1,0 +1,7 @@
+landing_page.form:
+  title: 'Front Page settings'
+  description: 'Configure settings for Front Page module.'
+  parent: 'system.admin_config'
+  route_name: landing_page.form
+  # url: internal:/admin/config/landing_page
+  weight: 100
