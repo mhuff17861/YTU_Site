@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'FAQ Categories'
+vid: faq_categories
+description: 'Potential categories FAQ items could fall under'
+weight: 0

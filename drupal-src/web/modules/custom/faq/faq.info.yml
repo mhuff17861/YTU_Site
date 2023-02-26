@@ -1,0 +1,6 @@
+name: FAQ
+description: Creates a dynamic frequently asked questions page
+package: Tenant Union
+
+type: module
+core_version_requirement: ^10

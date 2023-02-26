@@ -86,12 +86,12 @@ class FrontPageForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Set the values
     $config = $this->config('front_page.settings');
-    $config->set('loremipsum.page_title', $form_state->getValue('page_title'));
-    $config->set('loremipsum.subtitle', $form_state->getValue('subtitle'));
-    $config->set('loremipsum.show_button', $form_state->getValue('show_button'));
-    $config->set('loremipsum.button_text', $form_state->getValue('button_text'));
-    $config->set('loremipsum.button_url', $form_state->getValue('button_url'));
-    // $config->set('loremipsum.banner_image', $form_state->getValue('banner_image'));
+    $config->set('front_page.page_title', $form_state->getValue('page_title'));
+    $config->set('front_page.subtitle', $form_state->getValue('subtitle'));
+    $config->set('front_page.show_button', $form_state->getValue('show_button'));
+    $config->set('front_page.button_text', $form_state->getValue('button_text'));
+    $config->set('front_page.button_url', $form_state->getValue('button_url'));
+    // $config->set('front_page.banner_image', $form_state->getValue('banner_image'));
 
     // Save the values
     $config->save();

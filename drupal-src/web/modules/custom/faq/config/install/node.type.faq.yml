@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: FAQ
+type: faq
+description: 'Enter a frequently asked question to appear on the FAQ page.'
+help: 'Enter a question that is frequently asked with as concise of an answer as possible. If it is something that requires more than 2-3 paragraphs, it is recommended you contact a site admin (At time of writing, Micah) to find a better solution.'
+new_revision: true
+preview_mode: 1
+display_submitted: false

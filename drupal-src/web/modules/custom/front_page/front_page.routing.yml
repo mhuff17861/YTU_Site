@@ -2,7 +2,7 @@
 front_page.build:
   path: '/home'
   defaults:
-    _controller: '\Drupal\front_page\Controller\FrontPageController::build'
+    _controller: '\Drupal\front_page\Controller\FrontPageController::content'
   requirements:
     _permission: 'build front page'
 

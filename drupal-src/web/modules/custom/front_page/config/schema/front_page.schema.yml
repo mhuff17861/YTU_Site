@@ -1,6 +1,6 @@
 front_page.settings:
   type: config_object
-  label: 'Lorem Ipsum settings'
+  label: 'Front page settings'
   mapping:
     front_page:
       type: mapping
