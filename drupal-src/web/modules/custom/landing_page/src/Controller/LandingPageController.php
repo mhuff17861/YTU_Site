@@ -14,11 +14,11 @@ class LandingPageController {
         // get theme and return with array
         return array(
             '#theme' => 'landing_page',
-            '#page_title' => $config->get('landing_page.page_title'),
-            '#subtitle' => $config->get('landing_page.subtitle'),
-            '#show_button' => $config->get('landing_page.show_button'),
-            '#button_text' => $config->get('landing_page.button_text'),
-            '#button_url' => $config->get('landing_page.button_url'),
+            '#page_title' => $config->get('page_title'),
+            '#subtitle' => $config->get('subtitle'),
+            '#show_button' => $config->get('show_button'),
+            '#button_text' => $config->get('button_text'),
+            '#button_url' => $config->get('button_url'),
         );
     }
 }

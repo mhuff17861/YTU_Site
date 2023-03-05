@@ -12,7 +12,6 @@ function landing_page_theme($existing, $type, $theme, $path) {
         'button_text' => NULL,
         'button_url' => NULL,
       ],
-      'template' => 'landing_page',
     ],
   ];
   return $variables;

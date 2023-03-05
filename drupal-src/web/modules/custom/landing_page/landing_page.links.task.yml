@@ -1,0 +1,4 @@
+landing_page.form:
+  route_name: landing_page.form
+  title: Settings
+  base_route: landing_page.form

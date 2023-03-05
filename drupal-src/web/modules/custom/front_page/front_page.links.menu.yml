@@ -1,7 +1,0 @@
-front_page.form:
-  title: 'Front Page settings'
-  description: 'Configure settings for Front Page module.'
-  parent: 'system.admin_config'
-  route_name: front_page.form
-  # url: internal:/admin/config/front_page
-  weight: 100

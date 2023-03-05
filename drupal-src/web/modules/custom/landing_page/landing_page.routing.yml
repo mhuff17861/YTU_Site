@@ -11,6 +11,6 @@ landing_page.form:
   path: '/admin/config/landing_page'
   defaults:
     _form: '\Drupal\landing_page\Form\LandingPageForm'
-    _title: 'Front Page settings'
+    _title: 'Landing Page settings'
   requirements:
     _permission: 'administer site configuration'

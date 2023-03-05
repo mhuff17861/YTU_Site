@@ -1,0 +1,7 @@
+rsvplist.admin_settings:
+  path: '/admin/config/content/rsvplist'
+  defaults:
+    _form: '\Drupal\rsvplist\Form\RSVPSettingsForm'
+    _title: 'RSVP list settings'
+  requirements:
+    _permission: 'administer rsvplist'

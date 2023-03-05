@@ -1,8 +1,0 @@
-name: Front Page
-description: Creates a front page.
-package: Tenant Union
-
-type: module
-core_version_requirement: ^10
-
-configure: front_page.form

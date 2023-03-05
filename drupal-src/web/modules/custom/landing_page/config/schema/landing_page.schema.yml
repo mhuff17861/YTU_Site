@@ -13,7 +13,7 @@ landing_page.settings:
           label: 'Subtitle for the front page:'
         show_button:
           type: boolean
-          label: 'Show a button to link user\'s elsewhere?'
+          label: 'Show a button to link users elsewhere?'
         button_text:
           type: text
           label: 'Button Text'
