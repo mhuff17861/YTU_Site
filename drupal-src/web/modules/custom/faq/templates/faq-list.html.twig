@@ -13,13 +13,9 @@
 
 {% for faq in faq_nodes %}
 <div class="question">
-    <h3>{{ faq.title }}</h3>
-    <p>{{ faq.body }}</p>
+    <h3>{{ faq.title.value }}</h3>
+    <p>{{ faq.body.value }}</p>
 
-    <ul>
-        {% for category in faq_categories %}
-        <li>{{ category }}</li>
-        {% endfor %}
-    </ul>
+    <!-- need to print faq categories for clickies -->
 </div>
 {% endfor %}

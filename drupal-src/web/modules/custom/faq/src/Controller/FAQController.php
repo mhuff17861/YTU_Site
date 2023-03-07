@@ -20,13 +20,14 @@
     protected function load() {
         try {
             $query = \Drupal::entityQuery('node');
+            $query->accessCheck(TRUE);
             $query->condition('status', 1)
                 ->condition('type', 'faq');
 
             $entity_ids = $query->execute();
         } catch (\Exception $e) {
             \Drupal::messenger()->addStatus(
-                t('Unable to access the database at this time, please try again later')
+                t('Unable to access the database at this time, please try again later' . $e->getMessage())
             );
             return NULL;
         }
