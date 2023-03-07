@@ -1,0 +1,25 @@
+{#
+/**
+* @file
+* Presents a list of frequently asked questions.
+*
+* Available Variables:
+*   - title: page title
+*   - faq_nodes: array of faq nodes.
+*/
+#}
+
+<p>Test output for reference</p>
+
+{% for faq in faq_nodes %}
+<div class="question">
+    <h3>{{ faq.title }}</h3>
+    <p>{{ faq.body }}</p>
+
+    <ul>
+        {% for category in faq_categories %}
+        <li>{{ category }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}

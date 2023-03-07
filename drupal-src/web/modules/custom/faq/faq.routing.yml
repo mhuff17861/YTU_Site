@@ -1,0 +1,15 @@
+# faq.admin_settings:
+#   path: '/admin/config/content/faq'
+#   defaults:
+#     _form: '\Drupal\faq\Form\FAQSettingsForm'
+#     _title: 'FAQ settings'
+#   requirements:
+#     _permission: 'administer faq'
+
+faq.faq:
+  path: /faq
+  defaults:
+    _controller: \Drupal\faq\Controller\FAQController::list
+    _title: List of frequently asked questions
+  requirements:
+    _permission: 'access content'

@@ -2,13 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.question
     - node.type.faq
-id: node.faq.title
-field_name: title
+id: node.faq.question
+field_name: question
 entity_type: node
 bundle: faq
 label: Question
-description: ''
+description: 'The question to be answered.'
 required: true
 translatable: true
 default_value: {  }

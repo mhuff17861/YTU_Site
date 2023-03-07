@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function faq_theme($existing, $type, $theme, $path) {
+  return [
+    'faq_list' => [
+      'variables' => ['faq_nodes' => [], 'title' => ''],
+    ],
+  ];
+}
