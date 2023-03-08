@@ -4,24 +4,23 @@
 * Presents a list of frequently asked questions.
 *
 * Available Variables:
-*   - title: page title
 *   - faq_nodes: array of faq nodes with title (the question),
 *     body, and an array of categories.
 */
 #}
 
-<h1>{{ title }}</h1>
-
 {% for faq in faq_nodes %}
 <div class="question">
     <h3>{{ faq.title.value }}</h3>
-    <p>{{ faq.body.value }}</p>
+    <p>{{ faq.body.value|raw }}</p>
 
-    <ul>
+    <div class="d-flex flex-row align-items-center">
+        <p class="mb-0 me-1">Categories: </p>
         {% for category in faq.field_faq_categories %}
-        <li>{{ category.entity.name.value }}</li>
+        <a class="btn btn-sm btn-primary me-1" href="?category={{ category.entity.name.value }}">{{ category.entity.name.value }}</a>
         {% endfor %}
-    </ul>
+    </div>
 
+    <hr class="my-4">
 </div>
 {% endfor %}
