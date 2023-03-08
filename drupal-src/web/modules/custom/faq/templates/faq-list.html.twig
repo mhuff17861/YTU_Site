@@ -5,17 +5,23 @@
 *
 * Available Variables:
 *   - title: page title
-*   - faq_nodes: array of faq nodes.
+*   - faq_nodes: array of faq nodes with title (the question),
+*     body, and an array of categories.
 */
 #}
 
-<p>Test output for reference</p>
+<h1>{{ title }}</h1>
 
 {% for faq in faq_nodes %}
 <div class="question">
     <h3>{{ faq.title.value }}</h3>
     <p>{{ faq.body.value }}</p>
 
-    <!-- need to print faq categories for clickies -->
+    <ul>
+        {% for category in faq.field_faq_categories %}
+        <li>{{ category.entity.name.value }}</li>
+        {% endfor %}
+    </ul>
+
 </div>
 {% endfor %}
