@@ -31,7 +31,6 @@ use \Drupal\node\Entity\Node;
                 ->condition('type', 'faq');
 
             if (!empty($keywords) && trim($keywords) != '') {
-                \Drupal::messenger()->addMessage('Keywords found', MessengerInterface::TYPE_STATUS, TRUE);
                 $group = $query->orConditionGroup()
                     ->condition('title', $keywords, 'CONTAINS', $language)
                     ->condition('body', $keywords, 'CONTAINS', $language);
@@ -39,7 +38,6 @@ use \Drupal\node\Entity\Node;
             }
 
             if (!empty($category) && trim($category) != '') {
-                \Drupal::messenger()->addMessage('category found', MessengerInterface::TYPE_STATUS, TRUE);
                 $query = $query->condition('field_faq_categories.entity:taxonomy_term.name', $category);
             }
 
