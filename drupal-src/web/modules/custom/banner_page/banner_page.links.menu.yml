@@ -1,5 +1,0 @@
-banner_page.form:
-  title: 'Banner Page settings'
-  description: 'Configure settings for Banner Pages module.'
-  route_name: banner_page.form
-  parent: 'system.admin_config_development'

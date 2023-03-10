@@ -1,16 +1,16 @@
-uuid: f3821c56-eace-4c61-a578-7f2924e33410
+uuid: 4ed38e74-64d8-4c6b-911f-cab21b101f63
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.faq
+    - node.type.info_page
   module:
     - content_translation
 third_party_settings:
   content_translation:
     enabled: true
-id: node.faq
+id: node.info_page
 target_entity_type_id: node
-target_bundle: faq
+target_bundle: info_page
 default_langcode: site_default
 language_alterable: true

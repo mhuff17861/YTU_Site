@@ -1,0 +1,42 @@
+uuid: 2b40a0b6-1678-496e-bf7e-2988d053c6db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.info_page.body
+    - field.field.node.info_page.field_image
+    - node.type.info_page
+  module:
+    - image
+    - text
+    - user
+id: node.info_page.default
+targetEntityType: node
+bundle: info_page
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

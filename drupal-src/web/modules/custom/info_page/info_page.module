@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function info_page_theme($existing, $type, $theme, $path) {
+  return [
+    'node__info_page' => [
+      'template' => 'node--info_page',
+      'base hook' => 'node',
+    ],
+  ];
+}

@@ -1,0 +1,6 @@
+name: Info Page
+description: Creates a basic info page with a banner image at the top.
+package: Tenant Union
+
+type: module
+core_version_requirement: ^10

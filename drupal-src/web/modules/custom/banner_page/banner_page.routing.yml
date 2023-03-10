@@ -1,8 +1,0 @@
-# Create a space for the admin page
-banner_page_form:
-  path: '/admin/config/banner_page'
-  defaults:
-    _form: '\Drupal\banner_page\Form\BannerPageForm'
-    _title: 'Banner Page settings'
-  requirements:
-    _permission: 'administer site configuration'
