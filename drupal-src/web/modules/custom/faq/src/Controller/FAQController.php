@@ -56,7 +56,6 @@ class FAQController extends ControllerBase {
                 ->condition('type', 'faq');
 
             if (!empty($keywords) && trim($keywords) != '') {
-                print 'fucking keywords';
                 $group = $query->orConditionGroup()
                     ->condition('title', $keywords, 'CONTAINS', $language)
                     ->condition('body', $keywords, 'CONTAINS', $language);
@@ -64,7 +63,6 @@ class FAQController extends ControllerBase {
             }
 
             if (!empty($category) && trim($category) != '') {
-                print 'fucking category';
                 $query = $query->condition('field_faq_categories.entity:taxonomy_term.name', $category);
             }
 
@@ -93,8 +91,6 @@ class FAQController extends ControllerBase {
         $request = Request::createFromGlobals();
         $keywords = $request->get('keywords', '');
         $category = $request->get('category', '');
-        var_dump($keywords);
-        var_dump($category);
 
         // Get published faq ids
         $faq_ids = $this->load_list($keywords, $category);
