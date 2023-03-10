@@ -5,14 +5,39 @@
  * Builds an FAQ page based on published FAQ content
  */
 
- namespace Drupal\faq\Controller;
+namespace Drupal\faq\Controller;
 
- use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Messenger\MessengerInterface;
 use \Drupal\node\Entity\Node;
- use Symfony\Component\HttpFoundation\Request;
+use Drupal\Core\PageCache\ResponsePolicy\KillSwitch;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
- class FAQController extends ControllerBase {
+class FAQController extends ControllerBase {
+
+    /**
+     * Page cache kill switch, dependency injected from Symfony service.
+     *
+     * @var \Drupal\Core\PageCache\ResponsePolicy\KillSwitch
+     */
+    protected $killSwitch;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct(KillSwitch $kill_switch) {
+        $this->killSwitch = $kill_switch;
+    }
+
+    /**
+    * {@inheritdoc}
+    */
+    public static function create(ContainerInterface $container) {
+        return new static(
+            $container->get('page_cache_kill_switch') // inject cache killswitch
+        );
+    }
 
     /**
      * Gets and returns all node Ids for published FAQ items.
@@ -31,6 +56,7 @@ use \Drupal\node\Entity\Node;
                 ->condition('type', 'faq');
 
             if (!empty($keywords) && trim($keywords) != '') {
+                print 'fucking keywords';
                 $group = $query->orConditionGroup()
                     ->condition('title', $keywords, 'CONTAINS', $language)
                     ->condition('body', $keywords, 'CONTAINS', $language);
@@ -38,6 +64,7 @@ use \Drupal\node\Entity\Node;
             }
 
             if (!empty($category) && trim($category) != '') {
+                print 'fucking category';
                 $query = $query->condition('field_faq_categories.entity:taxonomy_term.name', $category);
             }
 
@@ -59,10 +86,15 @@ use \Drupal\node\Entity\Node;
      *   Render array for FAQ list output
      */
     public function list() {
+        // Kill the cache because it causes all sorts of bugs
+        $this->killSwitch->trigger();
+
         // Get search variables
         $request = Request::createFromGlobals();
         $keywords = $request->get('keywords', '');
         $category = $request->get('category', '');
+        var_dump($keywords);
+        var_dump($category);
 
         // Get published faq ids
         $faq_ids = $this->load_list($keywords, $category);
@@ -77,4 +109,4 @@ use \Drupal\node\Entity\Node;
             '#title' => t('Frequently Asked Questions'),
         ];
     }
- }
+}
