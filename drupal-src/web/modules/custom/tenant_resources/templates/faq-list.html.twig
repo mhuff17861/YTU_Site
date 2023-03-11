@@ -1,0 +1,52 @@
+{#
+/**
+* @file
+* Presents a list of frequently asked questions.
+*
+* Available Variables:
+*   - faq_nodes: array of faq nodes with title (the question),
+*     body, and an array of categories.
+*/
+#}
+
+{%
+    set card_link_classes = [
+        'align-self-start',
+        'mb-4',
+        'ms-3',
+        'btn',
+        'btn-primary',
+    ]
+%}
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Mauris lectus nisl, cursus non rhoncus a, hendrerit eget massa.
+    Aenean eleifend dui ut volutpat pharetra. Praesent leo lacus, aliquam
+    et ultricies sagittis, posuere et elit. In eget diam sem. Vestibulum
+    ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+    curae; Pellentesque consectetur consectetur suscipit. Maecenas vitae
+    neque at lacus eleifend lobortis nec at ipsum. Ut id felis a enim efficitur
+    lacinia sit amet non sapien. Cras diam odio, vestibulum non nulla et,
+    ullamcorper mollis elit. Aliquam neque arcu, faucibus ut tortor sit amet,
+    sodales dignissim sem. In urna tellus, tristique sit amet tincidunt id,
+    posuere sed nibh. Mauris iaculis diam imperdiet risus iaculis commodo.
+    Maecenas dui erat, dignissim placerat arcu sed, vestibulum luctus risus.
+</p>
+
+<div class="row row-cols-1 row-cols-lg-3 g-4 mt-3 mb-5">
+    {% for resource in tenant_resources %}
+        <div class="col">
+            <div class="card h-100 bg-dark text-light shadow d-flex flex-column">
+                <img class="card-img-top" src="{{ file_url(resource.field_image.entity.uri.value) }}" alt="{{ resource.field_image.alt }}">
+                <div class="card-body">
+                <h5 class="card-title border-bottom border-light pb-2 h3">{{ resource.title }}</h5>
+                <p class="card-text">{{ resource.body }}</p>
+                </div>
+                {% if resource.field_link_to_resource %}
+                    {{ resource.field_link_to_resource }}
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
