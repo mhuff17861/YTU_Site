@@ -1,0 +1,17 @@
+uuid: e94f8d55-cd1b-4238-adb6-67ecf7be5760
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Tenant Resource'
+type: tenant_resource
+description: 'A resource that would be useful  to a tenant, including but not limited to: mutual aid networks, legal services, and informational media.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

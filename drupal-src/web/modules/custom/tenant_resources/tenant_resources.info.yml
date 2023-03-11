@@ -1,0 +1,9 @@
+name: Tenant Resources
+description: Creates a dynamic page of resources for tenants
+package: Tenant Union
+
+type: module
+core_version_requirement: ^10
+
+dependencies:
+  - node

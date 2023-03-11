@@ -1,0 +1,23 @@
+uuid: a40f4f16-7bdc-4afd-92b5-f555792876d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.tenant_resource
+  module:
+    - text
+id: node.tenant_resource.body
+field_name: body
+entity_type: node
+bundle: tenant_resource
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

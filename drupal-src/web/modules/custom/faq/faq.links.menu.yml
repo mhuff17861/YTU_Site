@@ -4,4 +4,4 @@ faq.list:
   route_name: faq.faq
   parent: main
   menu_name: main
-  weight: 10
+  weight: 15

@@ -1,0 +1,22 @@
+uuid: 3d6f12e0-b328-4cd3-941b-3311e03fcbd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.tenant_resource
+id: node.tenant_resource.promote
+field_name: promote
+entity_type: node
+bundle: tenant_resource
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

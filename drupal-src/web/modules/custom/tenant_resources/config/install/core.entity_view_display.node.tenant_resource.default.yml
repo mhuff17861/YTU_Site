@@ -1,0 +1,56 @@
+uuid: a5ea420e-9d1b-4a77-b6e5-47f6dca5bfda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.tenant_resource.body
+    - field.field.node.tenant_resource.field_image
+    - field.field.node.tenant_resource.field_link_to_resource
+    - node.type.tenant_resource
+  module:
+    - image
+    - link
+    - text
+    - user
+id: node.tenant_resource.default
+targetEntityType: node
+bundle: tenant_resource
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_link_to_resource:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
