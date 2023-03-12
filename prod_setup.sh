@@ -24,6 +24,12 @@ echo "Hey there! I need your username (non-root) for some crontab and composer i
 read -p "Username: " uname
 echo ""
 
+echo ""
+echo ""
+echo "What is the domain you are building for, without www. (e.g. test.com)?"
+read -p "Domain: " domain
+echo ""
+
 apt update
 
 # Install and setup LAMP stack
@@ -33,7 +39,7 @@ a2enmod rewrite
 a2enmod php8.1
 
 # Install Certbot
-apt install python3
+apt install python3 unzip
 apt install certbot python3-certbot-apache
 
 # Folder Structure Setup
@@ -48,12 +54,15 @@ chown -R $uname:www-data $web_root
 
 # Apache configuration
 echo "" >> /etc/apache2/apache2.conf
+sed -i -e "s/{{domain}}/$domain/g" $(pwd)/$apache_dir/apache2-prod.conf
 cat $(pwd)/$apache_dir/apache2-prod.conf >> /etc/apache2/apache2.conf
 
 rm /etc/apache2/sites-available/000-default.conf
 rm /etc/apache2/sites-available/default-ssl.conf
-ln -s $(pwd)/$apache_dir/prod-site.conf /etc/apache2/sites-available/micahhuffdeveloper.conf
+sed -i -e "s/{{domain}}/$domain/g" $(pwd)/$apache_dir/prod-site.conf
+ln -s $(pwd)/$apache_dir/prod-site.conf /etc/apache2/sites-available/$(domain).conf
 
+service httpd restart
 service apache2 restart
 apt-get install php-ldap
 service apache2 restart
