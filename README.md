@@ -1,8 +1,19 @@
-# Yspilanti Tenant's Union Website
+# Ypsilanti Tenants' Union Website
 
-Very early workings of a drupal project. Just wanted the backup/version control for now.
+*Still in the prototyping stage*
 
-If you want to learn more about Drupal, I highly recommend a read through the [user guide](https://www.drupal.org/docs/user_guide/en/index.html). It's sometimes a bit out of date, but will give you good direction.
+The repository for the Ypsilanti Tenants' Union Drupal website. We've done our
+best to build things in modules (under the tenant union package name), so if
+you want to fork this project and use it for yourself, you can easily decide what
+modules to install or not.
+
+If you want to learn more about Drupal, I highly recommend a read through the [user guide](https://www.drupal.org/docs/user_guide/en/index.html) and/or the
+[module development course by Acquia](https://www.youtube.com/watch?v=FTIchVgL8TM&list=PLpVC00PAQQxFNDfiXn6LH1gOLllGS3hhl).
+
+## Dependencies (These should be installed if you follow the installation instructions below)
+
+- The Drupal core installation
+- The Drupal Bootstrap 5 theme
 
 ## Development Setup
 
