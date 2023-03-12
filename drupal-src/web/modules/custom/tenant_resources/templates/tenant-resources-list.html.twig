@@ -1,11 +1,11 @@
 {#
 /**
 * @file
-* Presents a list of frequently asked questions.
+* Presents a list of tenant resources.
 *
 * Available Variables:
-*   - faq_nodes: array of faq nodes with title (the question),
-*     body, and an array of categories.
+*   - tenant_resource_nodes: array of tenant resource nodes with title
+*   (the question), body, and an array of categories.
 */
 #}
 
@@ -35,16 +35,18 @@
 </p>
 
 <div class="row row-cols-1 row-cols-lg-3 g-4 mt-3 mb-5">
-    {% for resource in tenant_resources %}
+    {% for resource in tenant_resource_nodes %}
         <div class="col">
             <div class="card h-100 bg-dark text-light shadow d-flex flex-column">
+                {% if resource.field_image %}
                 <img class="card-img-top" src="{{ file_url(resource.field_image.entity.uri.value) }}" alt="{{ resource.field_image.alt }}">
+                {% endif %}
                 <div class="card-body">
-                <h5 class="card-title border-bottom border-light pb-2 h3">{{ resource.title }}</h5>
-                <p class="card-text">{{ resource.body }}</p>
+                <h5 class="card-title border-bottom border-light pb-2 h3">{{ resource.title.value }}</h5>
+                <p class="card-text">{{ resource.body.value|raw }}</p>
                 </div>
-                {% if resource.field_link_to_resource %}
-                    {{ resource.field_link_to_resource }}
+                {% if resource.field_link_to_resource.0.url %}
+                    <a class="align-self-start mb-4 ms-3 btn btn-primary" href="{{ resource.field_link_to_resource.0.url }}">{{ resource.field_link_to_resource.0.title }}</a>
                 {% endif %}
             </div>
         </div>

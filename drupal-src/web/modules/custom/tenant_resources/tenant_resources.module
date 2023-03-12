@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function tenant_resources_theme($existing, $type, $theme, $path) {
+  return [
+    'tenant_resources_list' => [
+      'variables' => ['tenant_resource_nodes' => [], 'title' => '',],
+    ],
+  ];
+}

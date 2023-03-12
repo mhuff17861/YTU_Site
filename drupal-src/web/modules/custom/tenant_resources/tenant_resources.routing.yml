@@ -1,0 +1,15 @@
+# faq.admin_settings:
+#   path: '/admin/config/content/faq'
+#   defaults:
+#     _form: '\Drupal\faq\Form\FAQSettingsForm'
+#     _title: 'FAQ settings'
+#   requirements:
+#     _permission: 'administer faq'
+
+tenant_resources.resources:
+  path: /resources
+  defaults:
+    _controller: \Drupal\tenant_resources\Controller\TenantResourcesController::list
+    _title: List of tenant resources
+  requirements:
+    _permission: 'access content'

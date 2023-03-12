@@ -1,7 +1,7 @@
 tenant_resources.resources:
   title: Resources
   description: View list of resources.
-  route_name: tenant_resources.resource
+  route_name: tenant_resources.resources
   parent: main
   menu_name: main
   weight: 10
