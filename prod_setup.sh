@@ -33,14 +33,14 @@ echo ""
 apt update
 
 # Install and setup LAMP stack
-apt install lamp-server^
-apt install curl php8.1-xml php8.1-mbstring php8.1-gd php8.1-curl
+apt install -y lamp-server^
+apt install -y curl php8.1-xml php8.1-mbstring php8.1-gd php8.1-curl
 a2enmod rewrite
 a2enmod php8.1
 
 # Install Certbot
-apt install python3 unzip
-apt install certbot python3-certbot-apache
+apt install -y python3 unzip
+apt install -y certbot python3-certbot-apache
 
 # Folder Structure Setup
 mkdir /var/www
@@ -54,17 +54,17 @@ chown -R $uname:www-data $web_root
 
 # Apache configuration
 echo "" >> /etc/apache2/apache2.conf
-sed -i -e "s/{{domain}}/$domain/g" $(pwd)/$apache_dir/apache2-prod.conf
-cat $(pwd)/$apache_dir/apache2-prod.conf >> /etc/apache2/apache2.conf
+cp $(pwd)/$apache_dir/apache2-prod.conf $(pwd)/apache2-prod.conf
+sed -i -e "s/{{domain}}/$domain/g" $(pwd)/apache2-prod.conf
+cat $(pwd)/apache2-prod.conf >> /etc/apache2/apache2.conf
+rm $(pwd)/apache2-prod.conf
 
-rm /etc/apache2/sites-available/000-default.conf
-rm /etc/apache2/sites-available/default-ssl.conf
-sed -i -e "s/{{domain}}/$domain/g" $(pwd)/$apache_dir/prod-site.conf
-ln -s $(pwd)/$apache_dir/prod-site.conf /etc/apache2/sites-available/$(domain).conf
+cp /etc/apache2/sites-available/$domain.conf
+sed -i -e "s/{{domain}}/$domain/g" /etc/apache2/sites-available/$domain.conf
 
 service httpd restart
 service apache2 restart
-apt-get install php-ldap
+apt-get install -y php-ldap
 service apache2 restart
 
 # HTTPS setup with certbot
