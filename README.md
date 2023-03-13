@@ -69,4 +69,6 @@ In the file it opens, add the following line:
 
 ### Help! Something went wrong!
 
-Check out the file `docs/setup/dev_setup_help.md`, it contains help for common issues that occur during development setup.
+Check out the file `docs/setup/dev_setup_help.md` for dev setup and
+`docs/setup/prod_setup_help.md` for production setup. They contain help for
+common issues that occur during development setup.
