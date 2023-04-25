@@ -57,7 +57,7 @@ class TenantResourcesController extends ControllerBase {
             $entity_ids = $query->execute();
         } catch (\Exception $e) {
             \Drupal::messenger()->addStatus(
-                t('Unable to access the database at this time, please try again later' . $e->getMessage())
+                t('Unable to access the database at this time, please try again later')
             );
             return NULL;
         }

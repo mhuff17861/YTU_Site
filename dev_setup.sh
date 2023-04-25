@@ -10,7 +10,7 @@
 
 if [ $(id -u) != 0 ]; then
    echo "This script requires root permissions"
-   exit 
+   exit
 fi
 
 # intial setup
@@ -28,12 +28,13 @@ apt update
 
 # Install and setup LAMP stack
 apt install lamp-server^
-apt install curl php8.1-xml php8.1-mbstring php8.1-gd php8.1-curl 
+apt install curl php8.1-xml php8.1-mbstring php8.1-gd php8.1-curl
 a2ensite default-ssl
 a2enmod ssl
 a2enmod rewrite
 a2enmod php8.1
 
+mkdir $(pwd)/$web_root/sites/default/files
 mkdir /var/www
 rm -r /var/www/drupal
 mkdir $(pwd)/$web_root

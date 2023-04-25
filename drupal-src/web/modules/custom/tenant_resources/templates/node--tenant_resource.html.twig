@@ -1,0 +1,13 @@
+<div class="row">
+    {% if resource.field_image %}
+        <div class="col-12">
+            <img id="resource-img" class="w-100 img-fluid rounded-3 mb-4" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}">
+        </div>
+    {% endif %}
+    <div class="col-12 col-md-10">
+        {% if resource.field_link_to_resource.0.url %}
+            <a class="align-self-start mb-4 ms-3 btn btn-primary" href="{{ resource.field_link_to_resource.0.url }}">{{ resource.field_link_to_resource.0.title }}</a>
+        {% endif %}
+        {{ content.body|raw }}
+    </div>
+</div>

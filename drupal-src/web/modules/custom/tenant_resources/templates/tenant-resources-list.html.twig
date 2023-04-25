@@ -42,7 +42,7 @@
                 <img class="card-img-top" src="{{ file_url(resource.field_image.entity.uri.value) }}" alt="{{ resource.field_image.alt }}">
                 {% endif %}
                 <div class="card-body">
-                <h5 class="card-title border-bottom border-light pb-2 h3">{{ resource.title.value }}</h5>
+                <h5 class="card-title border-bottom border-light pb-2 h3"><a href="/node/{{ resource.id }}">{{ resource.title.value }}</a></h5>
                 <p class="card-text">{{ resource.body.value|raw }}</p>
                 </div>
                 {% if resource.field_link_to_resource.0.url %}
