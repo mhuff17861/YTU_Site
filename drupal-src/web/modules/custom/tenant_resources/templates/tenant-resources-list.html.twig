@@ -9,17 +9,7 @@
 */
 #}
 
-{%
-    set card_link_classes = [
-        'align-self-start',
-        'mb-4',
-        'ms-3',
-        'btn',
-        'btn-primary',
-    ]
-%}
-
-<p>
+<p class="mt-3 mb-4">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Mauris lectus nisl, cursus non rhoncus a, hendrerit eget massa.
     Aenean eleifend dui ut volutpat pharetra. Praesent leo lacus, aliquam
@@ -34,20 +24,24 @@
     Maecenas dui erat, dignissim placerat arcu sed, vestibulum luctus risus.
 </p>
 
-<div class="row row-cols-1 row-cols-lg-3 g-4 mt-3 mb-5">
+<div class="row row-cols-1 row-cols-lg-3 gx-4 mb-5">
     {% for resource in tenant_resource_nodes %}
         <div class="col">
             <div class="card h-100 bg-dark text-light shadow d-flex flex-column">
                 {% if resource.field_image %}
-                <img class="card-img-top" src="{{ file_url(resource.field_image.entity.uri.value) }}" alt="{{ resource.field_image.alt }}">
+                    <img class="card-img-top" src="{{ file_url(resource.field_image.entity.uri.value) }}" alt="{{ resource.field_image.alt }}">
                 {% endif %}
                 <div class="card-body">
-                <h5 class="card-title border-bottom border-light pb-2 h3"><a href="/node/{{ resource.id }}">{{ resource.title.value }}</a></h5>
-                <p class="card-text">{{ resource.body.value|raw }}</p>
+                <h5 class="card-title border-bottom border-light pb-3 mb-3 h3"><a class="link-light" href="/node/{{ resource.id }}">{{ resource.title.value }}</a></h5>
+                <p class="card-text">{{ resource.body.summary|raw }}</p>
                 </div>
-                {% if resource.field_link_to_resource.0.url %}
-                    <a class="align-self-start mb-4 ms-3 btn btn-primary" href="{{ resource.field_link_to_resource.0.url }}">{{ resource.field_link_to_resource.0.title }}</a>
-                {% endif %}
+
+                <div class="d-flex flex-row ps-3 mb-4">
+                    {% if resource.field_link_to_resource.0.url %}
+                        <a class="align-self-start me-2 btn btn-primary" href="{{ resource.field_link_to_resource.0.url }}">{{ resource.field_link_to_resource.0.title }}</a>
+                    {% endif %}
+                    <a class="align-self-start me-2 btn btn-primary" href="/node/{{ resource.id }}">More Info</a>
+                </div>
             </div>
         </div>
     {% endfor %}

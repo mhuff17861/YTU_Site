@@ -8,5 +8,9 @@ function tenant_resources_theme($existing, $type, $theme, $path) {
     'tenant_resources_list' => [
       'variables' => ['tenant_resource_nodes' => [], 'title' => '',],
     ],
+    'node__tenant_resource' => [
+      'template' => 'node--tenant_resource',
+      'base hook' => 'node',
+    ],
   ];
 }
