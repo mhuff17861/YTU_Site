@@ -89,8 +89,8 @@ class FAQController extends ControllerBase {
 
         // Get search variables
         $request = Request::createFromGlobals();
-        $keywords = $request->get('keywords', '');
-        $category = $request->get('category', '');
+        $keywords = trim($request->get('keywords', ''));
+        $category = trim($request->get('category', ''));
 
         // Get published faq ids
         $faq_ids = $this->load_list($keywords, $category);
@@ -103,6 +103,8 @@ class FAQController extends ControllerBase {
             '#theme' => 'faq_list',
             '#faq_nodes' => $faq_nodes,
             '#title' => t('Frequently Asked Questions'),
+            '#keywords' => $keywords,
+            '#category' => $category,
         ];
     }
 }

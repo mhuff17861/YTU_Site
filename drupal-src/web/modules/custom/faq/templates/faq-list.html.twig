@@ -6,22 +6,31 @@
 * Available Variables:
 *   - faq_nodes: array of faq nodes with title (the question),
 *     body, and an array of categories.
+*   - keywords: A string of keywords the user entered
+*   - category: The current category being searched on
 */
 #}
 
 <form action="" method="GET">
     <label id="lbl-search" class="visually-hidden" for="inp-search">Search</label>
+    <input id="inp-category" name="category" type="hidden" value="{{ category }}">
 
-    <div class="row my-5">
+    <div class="row mt-5">
 
         <div class="col-12 col-md-4 me-3 mb-3 mb-md-0">
-            <input id="inp-search" class="form-control" type="text" name="keywords">
+            <input id="inp-search" class="form-control" type="text" name="keywords" value="{{ keywords }}">
         </div>
 
         <div id="btn-row" class="col-12 col-md-4 d-flex flex-row justify-content-center justify-content-md-start">
             <button class="btn btn-primary me-2" type="submit">Search</button>
-            <a class="btn btn-dark me-3" href="?keywords=&category=">Clear</a>
+            <a class="btn btn-dark me-2" href="?keywords=&category=">Clear</a>
         </div>
+
+        {% if category is not null and category is not empty %}
+        <div id="category" class="col-12 mt-3">
+            <p>Currently search the category: <span class="text-primary">{{ category }}</span></p>
+        </div>
+        {% endif %}
     </div>
 </form>
 
