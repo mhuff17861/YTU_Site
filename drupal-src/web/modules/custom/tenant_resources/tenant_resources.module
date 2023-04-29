@@ -6,7 +6,11 @@
 function tenant_resources_theme($existing, $type, $theme, $path) {
   return [
     'tenant_resources_list' => [
-      'variables' => ['tenant_resource_nodes' => [], 'title' => '',],
+      'variables' => [
+        'tenant_resource_nodes' => [],
+        'title' => '',
+        'introduction' => '',
+      ],
     ],
     'node__tenant_resource' => [
       'template' => 'node--tenant_resource',

@@ -72,6 +72,10 @@ class TenantResourcesController extends ControllerBase {
      *   Render array for tenant resource list output
      */
     public function list() {
+        // Get the tenant resource introduction from the admin settings
+        $config = $this->config('tenant_resources.settings');
+        $introduction = $config->get('introduction');
+
         // Get published tenant resource ids
         $tenant_resource_ids = $this->load_list();
 
@@ -83,6 +87,7 @@ class TenantResourcesController extends ControllerBase {
             '#theme' => 'tenant_resources_list',
             '#tenant_resource_nodes' => $tenant_resource_nodes,
             '#title' => t('Tenant Resources'),
+            '#introduction' => $introduction,
         ];
     }
 }

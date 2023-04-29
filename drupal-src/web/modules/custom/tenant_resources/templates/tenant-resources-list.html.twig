@@ -6,23 +6,13 @@
 * Available Variables:
 *   - tenant_resource_nodes: array of tenant resource nodes with title
 *   (the question), body, and an array of categories.
+*   - introduction: text used to introduce the page
 */
 #}
 
-<p class="mt-3 mb-4">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Mauris lectus nisl, cursus non rhoncus a, hendrerit eget massa.
-    Aenean eleifend dui ut volutpat pharetra. Praesent leo lacus, aliquam
-    et ultricies sagittis, posuere et elit. In eget diam sem. Vestibulum
-    ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-    curae; Pellentesque consectetur consectetur suscipit. Maecenas vitae
-    neque at lacus eleifend lobortis nec at ipsum. Ut id felis a enim efficitur
-    lacinia sit amet non sapien. Cras diam odio, vestibulum non nulla et,
-    ullamcorper mollis elit. Aliquam neque arcu, faucibus ut tortor sit amet,
-    sodales dignissim sem. In urna tellus, tristique sit amet tincidunt id,
-    posuere sed nibh. Mauris iaculis diam imperdiet risus iaculis commodo.
-    Maecenas dui erat, dignissim placerat arcu sed, vestibulum luctus risus.
-</p>
+<div id="introduction" class="mb-3">
+    {{ introduction }}
+</div>
 
 <div class="row row-cols-1 row-cols-lg-3 gx-4 mb-5">
     {% for resource in tenant_resource_nodes %}
