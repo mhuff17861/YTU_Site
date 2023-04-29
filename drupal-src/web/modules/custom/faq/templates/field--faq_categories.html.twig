@@ -1,0 +1,11 @@
+<div class="faq-categories">
+    <p class="mb-2">Categories: </p>
+
+    <ul class="list-inline">
+        {% for category in node.field_faq_categories %}
+        <li class="list-inline-item mb-2">
+            <a class="btn btn-sm btn-primary" href="?category={{ category.entity.name.value|url_encode }}">{{ category.entity.name.value }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

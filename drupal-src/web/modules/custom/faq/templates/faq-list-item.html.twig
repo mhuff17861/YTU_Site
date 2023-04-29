@@ -1,0 +1,8 @@
+<div class="faq-question row my-4">
+    <h3><a href="/node/{{ node.id }}">{{ node.title.value }}</a></h3>
+    <p>{{ node.body.value|raw }}</p>
+
+    {% include '@faq/field--faq_categories.html.twig' %}
+</div>
+
+<hr>

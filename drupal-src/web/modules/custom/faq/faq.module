@@ -8,5 +8,9 @@ function faq_theme($existing, $type, $theme, $path) {
     'faq_list' => [
       'variables' => ['faq_nodes' => [], 'title' => '',],
     ],
+    'node__faq' => [
+      'template' => 'node--faq',
+      'base hook' => 'node',
+    ],
   ];
 }
