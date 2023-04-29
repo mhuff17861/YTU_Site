@@ -1,12 +1,11 @@
 <div class="row mb-5">
-    {% if node.field_image %}
-        <div class="col-12">
-            <img id="resource-img" class="w-100 img-fluid rounded-3 mb-4" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}">
-        </div>
-    {% endif %}
-    <div class="col-12 col-md-10">
+    <div class="col-12 text-wrap">
+        {% if node.field_image %}
+            <img id="resource-img" class="w-50 float-end img-fluid rounded-3 mx-4 mb-4" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}">
+        {% endif %}
+
         {% if node.field_link_to_resource.0.url %}
-            <p class="mb-4">Resource Link: <a class="link-primary" href="{{ node.field_link_to_resource.0.url }}">{{ node.field_link_to_resource.0.title }}</a></p>
+            <p><strong>Resource Link:</strong> <a class="link-primary" href="{{ node.field_link_to_resource.0.url }}">{{ node.field_link_to_resource.0.title }}</a></p>
         {% endif %}
         {{ content.body|raw }}
     </div>
