@@ -97,9 +97,11 @@
 
         <div id="banner-container" class="w-100 py-5" style="background-image: url('/themes/custom/tenant_union_b5/images/backgrounds/front-page-background.jpg'); background-size: 100% auto;">
             <div id="banner-message" class="bg-dark text-center text-white py-5" style="--bs-bg-opacity: .5;">
-                <h1>Ypsilanti Tenants' Union</h1>
-                <h2 class="h3">Tagline, Tagline, Tagline</h2>
-                <a class="btn btn-primary mt-3" href="#">Join Us!</a>
+                <h1>{{ frontpage_title }}</h1>
+                <h2 class="h3">{{ frontpage_tagline }}</h2>
+                {% if frontpage_show_button %}
+                  <a class="btn btn-primary mt-3" href="{{ frontpage_button_link }}">{{ frontpage_button_text }}</a>
+                {% endif %}
             </div>
         </div>
 

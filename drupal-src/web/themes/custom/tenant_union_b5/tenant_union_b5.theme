@@ -4,3 +4,24 @@
  * @file
  * Tenant Union Bootstrap5 theme file.
  */
+
+use Drupal\tenant_union_b5\SettingsManager;
+
+function tenant_union_b5_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id = NULL) {
+    $settings_manager = new SettingsManager(\Drupal::service('theme.manager'));
+    return $settings_manager->themeSettingsAlter($form, $form_state, $form_id);
+}
+
+/**
+ * Implements theme_preprocess_page().
+ */
+function tenant_union_b5_preprocess_page(&$variables) {
+    // Pas frontpage variables to the front page
+    if ($variables['is_front']) {
+        $variables['frontpage_title'] = theme_get_setting('frontpage_title');
+        $variables['frontpage_tagline'] = theme_get_setting('frontpage_tagline');
+        $variables['frontpage_show_button'] = theme_get_setting('frontpage_show_button');
+        $variables['frontpage_button_text'] = theme_get_setting('frontpage_button_text');
+        $variables['frontpage_button_link'] = theme_get_setting('frontpage_button_link');
+    }
+}

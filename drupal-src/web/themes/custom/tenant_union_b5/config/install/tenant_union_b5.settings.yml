@@ -6,3 +6,8 @@ b5_footer_schema: dark
 b5_footer_bg_schema: secondary
 b5_top_container: container
 b5_top_container_config: ''
+frontpage_title: 'Tenant Union Title'
+frontpage_tagline: 'Tagline'
+frontpage_show_button: true
+frontpage_button_text: 'Join Us!'
+frontpage_button_link: '/#'
