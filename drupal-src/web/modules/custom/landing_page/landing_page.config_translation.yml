@@ -1,5 +1,0 @@
-landing_page.form
-  title: 'Landing Page Module'
-  base_route_name: landing_page.form
-  names:
-    - landing_page.settings

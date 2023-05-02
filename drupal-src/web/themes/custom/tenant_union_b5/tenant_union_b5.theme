@@ -6,22 +6,44 @@
  */
 
 use Drupal\tenant_union_b5\SettingsManager;
+use \Drupal\Core\Form\FormStateInterface;
+use \Drupal\Core\Path\PathMatcher;
 
-function tenant_union_b5_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id = NULL) {
+/**
+ * Implements hook_form_system_theme_settings_alter
+ */
+function tenant_union_b5_form_system_theme_settings_alter(&$form, FormStateInterface $form_state, $form_id = NULL) {
     $settings_manager = new SettingsManager(\Drupal::service('theme.manager'));
     return $settings_manager->themeSettingsAlter($form, $form_state, $form_id);
+}
+
+/**
+ * Handles submission of frontpage settings.
+ *
+ * @see tenant_union_b5_form_system_theme_settings_alter
+ */
+function tenant_union_b5_form_system_theme_settings_frontpage_options_submit(&$form, FormStateInterface $form_state) {
+    $settings_manager = new SettingsManager(\Drupal::service('theme.manager'));
+    return $settings_manager->submitFrontPageBannerImage($form, $form_state);
 }
 
 /**
  * Implements theme_preprocess_page().
  */
 function tenant_union_b5_preprocess_page(&$variables) {
-    // Pas frontpage variables to the front page
-    if ($variables['is_front']) {
+    // Pass frontpage variables to the front page
+    if (\Drupal::service('path.matcher')->isFrontPage()) {
         $variables['frontpage_title'] = theme_get_setting('frontpage_title');
         $variables['frontpage_tagline'] = theme_get_setting('frontpage_tagline');
         $variables['frontpage_show_button'] = theme_get_setting('frontpage_show_button');
         $variables['frontpage_button_text'] = theme_get_setting('frontpage_button_text');
         $variables['frontpage_button_link'] = theme_get_setting('frontpage_button_link');
+
+        //banner image stuff
+        // $banner_img_id = theme_get_setting('frontpage_banner_image');
+        // $banner_img = \Drupal::entityTypeManager()->getStorage('file')->load($banner_img_id);
+        // $variables['frontpage_banner_image'] = \Drupal::entityTypeManager()->getViewBuilder('file')->view($banner_img);
+        $variables['frontpage_banner_image_uri'] = theme_get_setting('frontpage_banner_image_uri');
+        $variables['frontpage_banner_image_alt_text'] = theme_get_setting('frontpage_banner_image_alt_text');
     }
 }

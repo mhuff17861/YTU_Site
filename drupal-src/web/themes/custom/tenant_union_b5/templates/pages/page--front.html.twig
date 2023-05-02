@@ -38,7 +38,14 @@
      * - page.footer: Items for the footer region.
      * - page.breadcrumb: Items for the breadcrumb region.
      *
-     * @see template_preprocess_page()
+     * Available Variables:
+     * - frontpage_title
+     * - frontpage_tagline
+     * - frontpage_show_button
+     * - frontpage_button_text
+     * - frontpage_button_link
+     *
+     * @see tenant_union_b5_preprocess_page()
      * @see html.html.twig
      */
     #}
@@ -95,15 +102,15 @@
       set content_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-lg-6' : ((page.sidebar_first or page.sidebar_second) ? 'col-12 col-lg-9' : 'col-12' )
        %}
 
-        <div id="banner-container" class="w-100 py-5" style="background-image: url('/themes/custom/tenant_union_b5/images/backgrounds/front-page-background.jpg'); background-size: 100% auto;">
-            <div id="banner-message" class="bg-dark text-center text-white py-5" style="--bs-bg-opacity: .5;">
-                <h1>{{ frontpage_title }}</h1>
-                <h2 class="h3">{{ frontpage_tagline }}</h2>
-                {% if frontpage_show_button %}
-                  <a class="btn btn-primary mt-3" href="{{ frontpage_button_link }}">{{ frontpage_button_text }}</a>
-                {% endif %}
-            </div>
-        </div>
+      <div id="banner-container" class="w-100 py-5" style="background-image: url('{{ file_url(frontpage_banner_image_uri) }}'); background-size: 100% auto;">
+          <div id="banner-message" class="bg-dark text-center text-white py-5" style="--bs-bg-opacity: .5;">
+              <h1>{{ frontpage_title }}</h1>
+              <h2 class="h3">{{ frontpage_tagline }}</h2>
+              {% if frontpage_show_button %}
+                <a class="btn btn-primary mt-3" href="{{ frontpage_button_link }}">{{ frontpage_button_text }}</a>
+              {% endif %}
+          </div>
+      </div>
 
       <div class="{{ b5_top_container }}">
         <div class="row g-0">

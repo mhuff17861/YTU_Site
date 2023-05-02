@@ -88,6 +88,80 @@ class SettingsManager {
             '#default_value' => theme_get_setting('frontpage_button_link'),
             '#description' => $this->t("Where the button on the front page should link to. For example: /example/page for internal links, https://example.com for external links."),
         ];
+
+        // ***** Banner *****
+        $form['frontpage_banner'] = [
+            '#type' => 'details',
+            '#title' => $this->t('Front Page Banner'),
+            '#description' => $this->t('Add or update the front page banner.'),
+            '#open' => TRUE,
+        ];
+
+        $form['frontpage_banner']['frontpage_banner_image'] = [
+            '#type' => 'managed_file',
+            '#attributes' => [
+                'accept' => '.png,.jpg,.jpeg',
+            ],
+            '#file_validators' => [
+                'file_validate_extensions' => [
+                    'png jpg jpeg',
+                ],
+            ],
+            '#upload_location' => 'public://theme_img_uploads/banner',
+            '#title' => $this->t('Front Page Banner Image'),
+            '#default_value' => theme_get_setting('frontpage_banner_image'),
+            '#description' => $this->t("A banner image to show on the front page. Can be a .jpg, .jpeg, or .png file."),
+        ];
+
+        $form['frontpage_banner']['frontpage_banner_image_alt_text'] = [
+            '#type' => 'textfield',
+            '#title' => $this->t('Front Page Banner Alt Text'),
+            '#default_value' => theme_get_setting('frontpage_banner_image_alt_text'),
+            '#description' => $this->t("A brief description of the banner image for accessibility purposes."),
+        ];
+
+        $form['frontpage_banner']['update'] = [
+            '#type' => 'submit',
+            '#name' => 'frontpage_banner_update',
+            '#value' => $this->t('Update Banner'),
+            '#button_type' => 'danger',
+            '#attributes' => [
+                'class' => ['btn btn-danger'],
+            ],
+            '#submit' => ['tenant_union_b5_form_system_theme_settings_frontpage_options_submit'],
+        ];
     }
 
+    /**
+     * Submit callback.
+     *
+     * @param array $form
+     *   An associative array containing the structure of the form.
+     * @param \Drupal\Core\Form\FormStateInterface $form_state
+     *   The current state of the form.
+     *
+     * @see hook_form_system_theme_settings_alter()
+     */
+    public function submitFrontPageBannerImage(array &$form, FormStateInterface $form_state) {
+        // Get the theme config
+        $config = \Drupal::service('config.factory')->getEditable('tenant_union_b5.settings');
+
+        if ($file_id = $form_state->getValue(['frontpage_banner_image', '0'])) {
+            $storage = \Drupal::entityTypeManager()->getStorage('file');
+            $file = $storage->load($file_id);
+            if ($file != null) {
+                $file->setPermanent();
+                $file->save();
+                $config->set('frontpage_banner_image_uri', $file->getFileUri())
+                    ->save();
+            }
+        }
+
+        $config->set('frontpage_banner_image_alt_text', $form_state->getValue('frontpage_banner_image_alt_text'))
+            ->save();
+
+        \Drupal::messenger()->addStatus(
+            t('Front Page Banner Updated.')
+        );
+    }
 }
