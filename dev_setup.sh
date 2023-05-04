@@ -127,6 +127,8 @@ initial_setup () {
 update_drupal() {
     uname=$(get_username)
     sudo -u $uname php composer.phar update "drupal/core-*" --with-all-dependencies -d ./$drupal_dir
+    sudo -u $uname php composer.phar update "drupal/admin_toolbar" --with-all-dependencies -d ./$drupal_dir
+    sudo -u $uname php composer.phar update "drupal/bootstrap5" --with-all-dependencies -d ./$drupal_dir
     echo "Go to [YOUR_DOMAIN]/update.php to complete updates." >&2
     echo "NOTE: Sometimes it will tell you there are no updates, don't stress, you're fine, there are just no DB updates."  >&2
 }
