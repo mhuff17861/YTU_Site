@@ -112,7 +112,12 @@
           </div>
       </div>
 
-      <div class="{{ b5_top_container }}">
+      {%
+        set container_classes = [
+            'w-100',
+        ]
+      %}
+      <div class="{{ b5_top_container.addClass(container_classes) }}">
         <div class="row g-0">
           {% if page.sidebar_first %}
             <div class="order-2 order-lg-1 {{ sidebar_first_classes }}">
@@ -121,37 +126,60 @@
           {% endif %}
           <div class="order-1 order-lg-2 {{ content_classes }}">
 
-            <div class="row row-cols-1 row-cols-lg-3 g-4 mt-3 mb-5">
+            <div class="frontpage-blurb">
 
-              <div class="col">
-                <div class="card h-100 bg-dark text-light shadow d-flex flex-column">
-                  <img src="" class="card-img-top" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title border-bottom border-light pb-2 h3">Card Title</h5>
-                    <p class="card-text">Description text Description text Description text Description text Description text</p>
-                  </div>
-                  <a href="https://github.com/mhuff17861/YTU_Site" class="align-self-start mb-4 ms-3 btn btn-primary">Github Repo</a>
+              <div class="row">
+                <div class="col-12 col-md-8 col-lg-7 mx-auto my-5">
+                  <h3 class="text-center mb-3">Who We Are</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
                 </div>
               </div>
 
-              <div class="col">
-                <div class="card h-100 bg-dark text-light shadow d-flex flex-column">
-                  <img src="" class="card-img-top" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title border-bottom border-light pb-2 h3">Card Title</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lectus nisl, cursus non rhoncus a, hendrerit eget massa. Aenean eleifend dui ut volutpat pharetra. Praesent leo lacus, aliquam et ultricies sagittis, posuere et elit. In eget diam sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque consectetur consectetur suscipit. Maecenas vitae neque at lacus eleifend lobortis nec at ipsum. Ut id felis a enim efficitur lacinia sit amet non sapien.</p>
-                  </div>
-                  <a href="https://github.com/mhuff17861/YTU_Site" class="align-self-start mb-4 ms-3 btn btn-primary">Github Repo</a>
+              <img class="w-100 mx-0" src="/themes/custom/tenant_union_b5/images/banners/front-page-banner.jpg">
+            </div>
+
+            <div class="frontpage-blurb">
+
+              <div class="row">
+                <div class="col-12 col-md-8 col-lg-7 mx-auto my-5">
+                  <h3 class="text-center mb-3">What We Do</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
                 </div>
               </div>
 
-              <div class="col">
-                <div class="card h-100 bg-dark text-light shadow d-flex flex-column">
-                  <img src="" class="card-img-top" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title border-bottom border-light pb-2 h3">Card Title</h5>
-                    <p class="card-text">Description text Description text Description text Description text Description text</p>
-                  </div>
+              <img class="w-100 mx-0" src="/themes/custom/tenant_union_b5/images/banners/front-page-banner.jpg">
+            </div>
+
+            <div class="frontpage-blurb">
+
+              <div class="row">
+                <div class="col-12 col-md-8 col-lg-7 mx-auto my-5">
+                  <h3 class="text-center mb-3">Something Else</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
                 </div>
               </div>
 

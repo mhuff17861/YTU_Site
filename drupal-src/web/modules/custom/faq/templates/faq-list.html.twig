@@ -17,18 +17,18 @@
 
     <div class="row mt-5">
 
-        <div class="col-12 col-md-4 me-3 mb-3 mb-md-0">
+        <div class="col-12 col-lg-4 me-3 mb-3 mb-lg-0">
             <input id="inp-search" class="form-control" type="text" name="keywords" value="{{ keywords }}">
         </div>
 
-        <div id="btn-row" class="col-12 col-md-4 d-flex flex-row justify-content-center justify-content-md-start">
+        <div id="btn-row" class="col-12 col-lg-4 d-flex flex-row justify-content-center justify-content-lg-start">
             <button class="btn btn-primary me-2" type="submit">Search</button>
             <a class="btn btn-dark me-2" href="?keywords=&category=">Clear</a>
         </div>
 
         {% if category is not null and category is not empty %}
         <div id="category" class="col-12 mt-3">
-            <p>Currently search the category: <span class="text-primary">{{ category }}</span></p>
+            <p>Currently searching the category: <span class="text-primary">{{ category }}</span></p>
         </div>
         {% endif %}
     </div>

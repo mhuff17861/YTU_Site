@@ -109,7 +109,6 @@ class SettingsManager {
             ],
             '#upload_location' => 'public://theme_img_uploads/banner',
             '#title' => $this->t('Front Page Banner Image'),
-            '#default_value' => theme_get_setting('frontpage_banner_image'),
             '#description' => $this->t("A banner image to show on the front page. Can be a .jpg, .jpeg, or .png file."),
         ];
 

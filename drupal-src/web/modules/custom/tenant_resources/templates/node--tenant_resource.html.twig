@@ -1,7 +1,9 @@
 <div class="row mb-5">
     <div class="col-12 text-wrap">
         {% if node.field_image %}
-            <img id="resource-img" class="w-50 float-end img-fluid rounded-3 mx-4 mb-4" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}">
+        <div class="col-12 col-lg-6 float-none float-lg-end">
+            <img id="resource-img" class="img-fluid rounded-3 mx-0 mx-lg-4 mb-4" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}">
+        </div>
         {% endif %}
 
         {% if node.field_link_to_resource.0.url %}

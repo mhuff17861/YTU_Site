@@ -47,3 +47,14 @@ function tenant_union_b5_preprocess_page(&$variables) {
         $variables['frontpage_banner_image_alt_text'] = theme_get_setting('frontpage_banner_image_alt_text');
     }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function tenant_union_b5_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    if (($form_id == 'user_login_block' || $form_id == 'user_login_form')) {
+        if (isset($form['more-links']['forgot_password_link'])) {
+            unset($form['more-links']['forgot_password_link']);
+        }
+    }
+}
