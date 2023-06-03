@@ -1,0 +1,45 @@
+{% set banner_img_uri = file_url(content.field_banner_image[0]['#item'].entity.uri.value) %}
+{% set banner_img_alt = content.field_banner_image[0]['#item'].alt %}
+{%
+    set banner_classes = [
+        'banner-container',
+        'py-5',
+        'w-100',
+    ]
+%}
+
+{% if is_front_page %}
+    {%
+        set col_classes = [
+            'col-12',
+            'col-md-8',
+            'col-lg-7',
+            'mx-auto',
+            'my-5',
+        ]
+    %}
+{% else %}
+    {%
+        set col_classes = [
+            'col-12',
+            'my-5',
+        ]
+    %}
+{% endif %}
+<div {{ attributes.addClass(banner_classes) }}>
+    {% block content %}
+
+    {% if banner_img_uri %}
+    <img alt="{{ banner_img_alt }}" class="w-100 mx-0" src="{{ banner_img_uri }}">
+    {% endif %}
+
+    <div class="row">
+        <div class="{{ col_classes|join(' ') }}">
+            {# NOTE: The title suffix contains the contextual links. #}
+            {{ title_suffix }}
+            {{ content.body|raw }}
+        </div>
+    </div>
+
+    {% endblock %}
+</div>

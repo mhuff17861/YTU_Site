@@ -2,3 +2,9 @@
 .is-active {
     color: #fff;
 }
+
+// Overide content region width on front page
+// Make it full width
+.front-page__main .region-content {
+    padding: 0;
+}

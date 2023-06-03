@@ -33,6 +33,7 @@ function tenant_union_b5_form_system_theme_settings_frontpage_options_submit(&$f
 function tenant_union_b5_preprocess_page(&$variables) {
     // Pass frontpage variables to the front page
     if (\Drupal::service('path.matcher')->isFrontPage()) {
+        $variables['is_front_page'] = true;
         $variables['frontpage_title'] = theme_get_setting('frontpage_title');
         $variables['frontpage_tagline'] = theme_get_setting('frontpage_tagline');
         $variables['frontpage_show_button'] = theme_get_setting('frontpage_show_button');
@@ -45,6 +46,8 @@ function tenant_union_b5_preprocess_page(&$variables) {
         // $variables['frontpage_banner_image'] = \Drupal::entityTypeManager()->getViewBuilder('file')->view($banner_img);
         $variables['frontpage_banner_image_uri'] = theme_get_setting('frontpage_banner_image_uri');
         $variables['frontpage_banner_image_alt_text'] = theme_get_setting('frontpage_banner_image_alt_text');
+    } else {
+        $variables['is_front_page'] = false;
     }
 }
 
@@ -56,5 +59,15 @@ function tenant_union_b5_form_alter(&$form, \Drupal\Core\Form\FormStateInterface
         if (isset($form['more-links']['forgot_password_link'])) {
             unset($form['more-links']['forgot_password_link']);
         }
+    }
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter
+ */
+function tenant_union_b5_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+    // Block suggestions for custom block bundles.
+    if (isset($variables['elements']['content']['#block_content'])) {
+        array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
     }
 }

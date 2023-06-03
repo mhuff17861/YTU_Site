@@ -1,0 +1,21 @@
+{% set background_img = file_url(content.field_banner_image[0]['#item'].entity.uri.value) %}
+{%
+    set banner_classes = [
+        'banner-container',
+        'py-5',
+        'w-100',
+    ]
+%}
+<div {{ attributes.addClass(banner_classes) }} style="background-image: url('{{ background_img }}'); background-size: 100% auto;">
+    {% block content %}
+    <div class="banner-message bg-dark py-5 text-center text-white" style="--bs-bg-opacity: .5;">
+        <h1 {{ title_attributes }}>{{ content.field_title[0] }}</h1>
+        {# NOTE: The title suffix contains the contextual links. #}
+        {{ title_suffix }}
+        <h2 class="h3">{{ content.field_tagline[0] }}</h2>
+        {% if content.field_button_link %}
+          <a class="btn btn-primary mt-3" href="{{ content.field_button_link[0]['#url'] }}">{{ content.field_button_link[0]['#title'] }}</a>
+        {% endif %}
+    </div>
+    {% endblock %}
+</div>
