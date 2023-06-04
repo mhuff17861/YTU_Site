@@ -3,12 +3,11 @@
 {%
     set banner_classes = [
         'banner-container',
-        'py-5',
         'w-100',
     ]
 %}
 
-{% if is_front_page %}
+{% if is_front %}
     {%
         set col_classes = [
             'col-12',
@@ -26,6 +25,7 @@
         ]
     %}
 {% endif %}
+
 <div {{ attributes.addClass(banner_classes) }}>
     {% block content %}
 

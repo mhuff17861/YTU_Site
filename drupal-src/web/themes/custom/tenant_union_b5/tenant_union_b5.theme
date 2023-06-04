@@ -28,12 +28,11 @@ function tenant_union_b5_form_system_theme_settings_frontpage_options_submit(&$f
 }
 
 /**
- * Implements theme_preprocess_page().
+ * Implements hook_preprocess_page().
  */
 function tenant_union_b5_preprocess_page(&$variables) {
     // Pass frontpage variables to the front page
     if (\Drupal::service('path.matcher')->isFrontPage()) {
-        $variables['is_front_page'] = true;
         $variables['frontpage_title'] = theme_get_setting('frontpage_title');
         $variables['frontpage_tagline'] = theme_get_setting('frontpage_tagline');
         $variables['frontpage_show_button'] = theme_get_setting('frontpage_show_button');
@@ -46,9 +45,22 @@ function tenant_union_b5_preprocess_page(&$variables) {
         // $variables['frontpage_banner_image'] = \Drupal::entityTypeManager()->getViewBuilder('file')->view($banner_img);
         $variables['frontpage_banner_image_uri'] = theme_get_setting('frontpage_banner_image_uri');
         $variables['frontpage_banner_image_alt_text'] = theme_get_setting('frontpage_banner_image_alt_text');
-    } else {
-        $variables['is_front_page'] = false;
     }
+}
+
+/**
+ * Implements hook_preprocess
+ */
+function tenant_union_b5_preprocess(&$variables, $hook) {
+    // Pass frontpage variables to the front page templates
+    try {
+        $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+    } catch (Exception $e) {
+        $variables['is_front'] = false;
+    }
+
+    // Ensure the cache varies correctly (new in Drupal 8.3).
+    $variables['#cache']['contexts'][] = 'url.path.is_front';
 }
 
 /**

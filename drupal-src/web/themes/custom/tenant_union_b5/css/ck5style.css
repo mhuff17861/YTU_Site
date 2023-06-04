@@ -10920,5 +10920,15 @@ a > .ck-content code {
 .ck-content .front-page__main .region-content {
   padding: 0;
 }
+.ck-content .banner-container {
+  background-image: var(--image-header__background-img-mobile);
+  background-size: 100% auto;
+}
+@media screen and (min-width: 768px) {
+  .ck-content .banner-container {
+    background-image: var(--image-header__background-img);
+    background-size: 100% auto;
+  }
+}
 
 /*# sourceMappingURL=ck5style.css.map */
