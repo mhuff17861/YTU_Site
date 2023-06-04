@@ -1,0 +1,14 @@
+// Set the variables themselves using inline css since
+// Drupal does not seem to have a drupal_add_css equivalent
+// And we need to get the image location on the fly
+.banner-container {
+    background-image: var(--image-header__background-img-mobile);
+    background-size: 100% auto;
+}
+
+@media screen and (min-width: 768px) {
+    .banner-container {
+        background-image: var(--image-header__background-img);
+        background-size: 100% auto;
+    }
+}
