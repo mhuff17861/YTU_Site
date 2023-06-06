@@ -5,10 +5,3 @@ tenant_resources.resources:
   parent: main
   menu_name: main
   weight: 10
-
-tenant_resources.admin_settings_link:
-  title: Tenant Resources Settings
-  description: Control display of RSVP Form
-  route_name: tenant_resources.admin_settings
-  parent: system.admin_config_content #/admin/config/content
-  weight: 10

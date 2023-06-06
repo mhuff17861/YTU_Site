@@ -5,11 +5,3 @@ tenant_resources.resources:
     _title: List of tenant resources
   requirements:
     _permission: 'access content'
-
-tenant_resources.admin_settings:
-  path: /admin/config/content/tenant_resources
-  defaults:
-    _form: '\Drupal\tenant_resources\Form\TenantResourcesSettingsForm'
-    _title: Settings for Tenant Resources
-  requirements:
-    _permission: 'content editor'
