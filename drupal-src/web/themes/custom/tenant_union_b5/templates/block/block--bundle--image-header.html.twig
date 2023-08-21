@@ -4,7 +4,7 @@
 {%
     set banner_classes = [
         'banner-container',
-        'py-5',
+        'py-sm-5',
         'w-100',
     ]
 %}
@@ -16,7 +16,7 @@
 #}
 <div {{ attributes.addClass(banner_classes) }} style="--image-header__background-img-mobile: url({{ background_img_mobile }}); --image-header__background-img: url({{ background_img }});">
     {% block content %}
-    <div class="banner-message bg-dark py-5 text-center text-white" style="--bs-bg-opacity: .5;">
+    <div class="banner-message bg-dark py-2 py-sm-5 text-center text-white" style="--bs-bg-opacity: .5;">
         <h1 {{ title_attributes }}>{{ content.field_title[0] }}</h1>
         {# NOTE: The title suffix contains the contextual links. #}
         {{ title_suffix }}
