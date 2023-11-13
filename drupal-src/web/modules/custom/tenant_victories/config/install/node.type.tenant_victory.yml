@@ -1,0 +1,18 @@
+uuid: e217ab53-92c4-4bc8-9de6-f834dc0d83bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Tenant Victory'
+type: tenant_victory
+description: 'A page describing a tenant victory and linking to sources on the topic.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

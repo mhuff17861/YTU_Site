@@ -1,0 +1,13 @@
+{%
+    set classes = [
+      'my-4',
+    ]
+  %}
+
+  <div{{ attributes.addClass(classes)}}>
+    {% for row in rows %}
+        <div class="border-bottom p-3">
+            {{ row.content }}
+        </div>
+    {% endfor %}
+  </div>

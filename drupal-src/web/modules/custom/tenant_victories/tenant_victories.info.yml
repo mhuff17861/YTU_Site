@@ -1,0 +1,9 @@
+name: Tenant Victories
+description: Creates a dynamic page of tenant victories
+package: Tenant Union
+
+type: module
+core_version_requirement: ^10
+
+dependencies:
+  - node

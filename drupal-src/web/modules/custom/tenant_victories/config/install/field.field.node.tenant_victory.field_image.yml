@@ -1,0 +1,38 @@
+uuid: 789e4336-e743-489b-b3f3-5f29a6ce73f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - node.type.tenant_victory
+  module:
+    - image
+id: node.tenant_victory.field_image
+field_name: field_image
+entity_type: node
+bundle: tenant_victory
+label: 'Info Image'
+description: 'An image to be placed at the top of the page after the title. Recommended aspect ratio of 7X5'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '2 MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

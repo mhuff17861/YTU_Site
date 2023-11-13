@@ -1,0 +1,21 @@
+uuid: c8f6d2d6-64b8-479a-9c31-58259feea073
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_victory_date
+    - node.type.tenant_victory
+  module:
+    - datetime
+id: node.tenant_victory.field_victory_date
+field_name: field_victory_date
+entity_type: node
+bundle: tenant_victory
+label: 'Victory Date'
+description: 'Date of the victory'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

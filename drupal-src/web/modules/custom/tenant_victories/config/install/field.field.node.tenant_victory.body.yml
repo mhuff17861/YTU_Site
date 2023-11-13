@@ -1,0 +1,24 @@
+uuid: 55c69a36-f0fd-4c56-841b-55f0541c7b34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.tenant_victory
+  module:
+    - text
+id: node.tenant_victory.body
+field_name: body
+entity_type: node
+bundle: tenant_victory
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: true
+  allowed_formats: {  }
+field_type: text_with_summary

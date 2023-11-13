@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function tenant_victories_theme($existing, $type, $theme, $path) {
+  return [
+    'node__tenant_victory' => [
+      'template' => 'node--tenant_victory',
+      'base hook' => 'node',
+    ],
+    'views_view_fields__tenant_victories' => [
+      'template' => 'views-view-fields--tenant_victories',
+      'base hook' => 'node',
+    ],
+];
+}

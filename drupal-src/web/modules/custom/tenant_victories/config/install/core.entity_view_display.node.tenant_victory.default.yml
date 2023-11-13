@@ -1,0 +1,80 @@
+uuid: bb2c50a7-8746-44b6-ad97-24082d919b92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.tenant_victory.body
+    - field.field.node.tenant_victory.field_additional_sources
+    - field.field.node.tenant_victory.field_image
+    - field.field.node.tenant_victory.field_main_source
+    - field.field.node.tenant_victory.field_victory_date
+    - node.type.tenant_victory
+  module:
+    - datetime
+    - image
+    - link
+    - text
+    - user
+id: node.tenant_victory.default
+targetEntityType: node
+bundle: tenant_victory
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_additional_sources:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_main_source:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_victory_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
