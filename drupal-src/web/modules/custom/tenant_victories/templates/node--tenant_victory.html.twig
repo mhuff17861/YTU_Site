@@ -6,7 +6,7 @@
         </div>
         {% endif %}
 
-        <p><em>{{ node.field_victory_date.0.value|date("m/d/y") }}</em></p>
+        <p class="mb-0"><em>{{ node.field_victory_date.0.value|date("m/d/y") }}</em></p>
         <p><strong>Main Source:</strong> <a class="link-primary" href="{{ node.field_main_source.0.url }}">{{ node.field_main_source.0.title }}</a></p>
 
         {{ content.body|raw }}
