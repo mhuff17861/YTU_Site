@@ -1,0 +1,13 @@
+.tenant-resource__card-top {
+    background-color: #FFFFFF;
+    aspect-ratio: 7/5;
+    display: flex;
+    align-items: center;border-top-left-radius: var(--bs-card-inner-border-radius);
+    border-top-right-radius: var(--bs-card-inner-border-radius);
+}
+
+.tenant-resource__card-image {
+    max-width: 100%;
+    aspect-ratio: 7/5;
+    object-fit: contain;
+}

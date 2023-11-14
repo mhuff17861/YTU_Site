@@ -2,11 +2,11 @@
     <div class="col-12 text-wrap">
         {% if node.field_image %}
         <div class="col-12 col-lg-6 float-none float-lg-start">
-            <img id="resource-img" class="img-fluid rounded-3 pe-0 pe-lg-4 mb-4" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}">
+            <img id="victory-img" class="img-fluid rounded-3 pe-0 pe-lg-4 mb-4" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}">
         </div>
         {% endif %}
 
-        <p class="mb-0"><em>{{ node.field_victory_date.0.value|date("m/d/y") }}</em></p>
+        <p class="mb-0"><strong>{{ node.field_victory_date.0.value|date("m/d/y") }}</strong></p>
         <p><strong>Main Source:</strong> <a class="link-primary" href="{{ node.field_main_source.0.url }}">{{ node.field_main_source.0.title }}</a></p>
 
         {{ content.body|raw }}

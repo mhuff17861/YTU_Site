@@ -1,0 +1,5 @@
+view_css:
+  version: 1.0
+  css:
+    theme:
+      css/tenant_victories_view.css: {}

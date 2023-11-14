@@ -88,6 +88,11 @@ class TenantResourcesController extends ControllerBase {
             '#tenant_resource_nodes' => $tenant_resource_nodes,
             '#title' => t('Tenant Resources'),
             '#introduction' => $introduction,
+            '#attached' => [
+                'library' => [
+                    'tenant_resources/base_css',
+                ],
+            ],
         ];
     }
 }

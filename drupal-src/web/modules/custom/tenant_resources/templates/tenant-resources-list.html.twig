@@ -15,8 +15,10 @@
         <div class="col">
             <div class="card h-100 bg-dark text-light shadow d-flex flex-column">
                 {% if resource.field_image %}
-                    <img class="card-img-top" src="{{ file_url(resource.field_image.entity.uri.value) }}" alt="{{ resource.field_image.alt }}">
-                {% endif %}
+                    <div class="tenant-resource__card-top">
+                        <img class="tenant-resource__card-image" src="{{ file_url(resource.field_image.entity.uri.value) }}" alt="{{ resource.field_image.alt }}">
+                    </div>
+                 {% endif %}
                 <div class="card-body">
                 <h5 class="card-title border-bottom border-light pb-3 mb-3 h3"><a class="link-light" href="/node/{{ resource.id }}">{{ resource.title.value }}</a></h5>
                 <p class="card-text">{{ resource.body.summary|raw }}</p>
